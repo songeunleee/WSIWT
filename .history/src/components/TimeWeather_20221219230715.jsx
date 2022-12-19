@@ -1,0 +1,58 @@
+import React from "react";
+import {
+  TiWeatherSunny,
+  TiWeatherPartlySunny,
+  TiWeatherCloudy,
+  TiWeatherDownpour,
+  TiWeatherSnow,
+  TiWeatherShower,
+} from "react-icons/ti";
+import Clothes from "./Clothes";
+export default function TimeWeather({ data }) {
+  console.log(weatherIcon(data[2].fcstValue, data[3].fcstValue));
+  return (
+    <section className="flex bg-gray-400 rounded-lg mb-3 p-2 items-center ">
+      <div className="flex bg-gray-500 rounded-lg ">
+        <div>{time(data[0].fcstTime)}</div>
+        <div>{a()}</div>
+        <div>{data[0].fcstValue}</div>
+      </div>
+      <Clothes />
+    </section>
+  );
+}
+
+function time(fcstTime) {
+  const time = `${fcstTime.substr(0, 2)}:${fcstTime.substr(2, 4)}`;
+  return time;
+}
+
+function a() {
+  return <TiWeatherSunny />;
+}
+
+function weatherIcon(SKY, PTY) {
+  let icon;
+  if (PTY === 0) {
+    switch (SKY) {
+      case 1:
+        icon = <TiWeatherSunny />;
+      case 3:
+        icon = <TiWeatherPartlySunny />;
+      case 4:
+        icon = <TiWeatherCloudy />;
+    }
+  } else {
+    switch (PTY) {
+      case 1:
+        icon = <TiWeatherDownpour />;
+      case 2:
+        icon = <TiWeatherDownpour />;
+      case 3:
+        icon = <TiWeatherSnow />;
+      case 4:
+        icon = <TiWeatherShower />;
+    }
+  }
+  return icon;
+}
