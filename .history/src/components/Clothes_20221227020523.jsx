@@ -8,27 +8,20 @@ export default function Clothes({ temperature }) {
     const res = await fetch("data/data.json");
     return res.json();
   });
-  const clothesList =
+  console.log(
     data &&
-    data.items.filter((item) => item.type.includes(getType(temperature)));
-
+      data.items
+        .map((item) => item.type)
+        .map(
+          (item) =>
+            item === item.filter((item) => item === getType(temperature))
+        )
+  );
   return (
-    <div className="flex flex-1 justify-around  pl-3">
-      <img
-        className="w-12 h-12"
-        src={clothesList && clothesList[0].image}
-        alt=""
-      />
-      <img
-        className="w-12 h-12"
-        src={clothesList && clothesList[1].image}
-        alt=""
-      />
-      <img
-        className="w-12 h-12"
-        src={clothesList && clothesList[2].image}
-        alt=""
-      />
+    <div className="flex flex-1 justify-around text-5xl pl-3">
+      <div>{getType(temperature)}</div>
+      <GiLabCoat />
+      <GiArmoredPants />
     </div>
   );
 }

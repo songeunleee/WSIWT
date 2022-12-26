@@ -11,7 +11,7 @@ export default function Clothes({ temperature }) {
   const clothesList =
     data &&
     data.items.filter((item) => item.type.includes(getType(temperature)));
-
+  console.log();
   return (
     <div className="flex flex-1 justify-around  pl-3">
       <img

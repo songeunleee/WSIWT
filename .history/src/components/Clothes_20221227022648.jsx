@@ -11,21 +11,21 @@ export default function Clothes({ temperature }) {
   const clothesList =
     data &&
     data.items.filter((item) => item.type.includes(getType(temperature)));
-
+  console.log();
   return (
     <div className="flex flex-1 justify-around  pl-3">
       <img
-        className="w-12 h-12"
+        className="w-10 h-10"
         src={clothesList && clothesList[0].image}
         alt=""
       />
       <img
-        className="w-12 h-12"
+        className="w-10 h-10"
         src={clothesList && clothesList[1].image}
         alt=""
       />
       <img
-        className="w-12 h-12"
+        className="w-10 h-100"
         src={clothesList && clothesList[2].image}
         alt=""
       />

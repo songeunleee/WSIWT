@@ -9,6 +9,7 @@ import {
 } from "react-icons/ti";
 import Clothes from "./Clothes";
 export default function TimeWeather({ data }) {
+  console.log();
   return (
     <section className="flex bg-gray-400 rounded-lg mb-3 p-2 items-center ">
       <div className=" bg-gray-500 rounded-lg  items-center w-1/3 p-1">
@@ -32,6 +33,10 @@ export default function TimeWeather({ data }) {
 function time(fcstTime) {
   const time = `${fcstTime.substr(0, 2)}:${fcstTime.substr(2, 4)}`;
   return time;
+}
+
+function a() {
+  return <TiWeatherSunny />;
 }
 
 function weatherIcon(SKY, PTY) {

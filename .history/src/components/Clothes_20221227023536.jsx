@@ -14,21 +14,12 @@ export default function Clothes({ temperature }) {
 
   return (
     <div className="flex flex-1 justify-around  pl-3">
-      <img
-        className="w-12 h-12"
-        src={clothesList && clothesList[0].image}
-        alt=""
-      />
-      <img
-        className="w-12 h-12"
-        src={clothesList && clothesList[1].image}
-        alt=""
-      />
-      <img
-        className="w-12 h-12"
-        src={clothesList && clothesList[2].image}
-        alt=""
-      />
+      {clothesList &&
+        clothesList.map((item) => {
+          return (
+            <img key={item.category} className="w-12 h-12" src={item.image} />
+          );
+        })}
     </div>
   );
 }
