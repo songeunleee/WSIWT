@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ClosetList({ item }) {
+export default function ClosetItem({ item }) {
   return (
     <section className="flex flex-col text-gray-800 bg-color2 rounded-3xl">
       <div className={`flex  items-center p-2 bg-color5 rounded-3xl  text-lg`}>
